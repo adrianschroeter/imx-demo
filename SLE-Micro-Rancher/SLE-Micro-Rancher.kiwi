@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OBS-Imagerepo: obsrepositories:/ -->
+
+<image schemaversion="6.5" name="micro-for-rancher-image" xmlns:suse_label_helper="com.suse.label_helper">
+  <description type="system">
+    <author>SUSE LLC</author>
+    <contact>https://www.suse.com/</contact>
+    <specification>SLE Micro for Rancher</specification>
+  </description>
+  <preferences>
+    <type image="docker">
+      <containerconfig
+        name="suse/sle-micro-rancher/5.3"
+        tag="latest"
+        maintainer="SUSE LLC (https://www.suse.com/)" >
+        <labels>
+          <!-- See https://en.opensuse.org/Building_derived_containers#Labels -->
+          <suse_label_helper:add_prefix prefix="com.suse.sle.micro.rancher">
+            <label name="org.opencontainers.image.title" value="SLE Micro for Rancher Base Container"/>
+	    <label name="org.opencontainers.image.description" value="Image containing a micro environment for containers based on the SLE Micro for Rancher."/>
+            <label name="org.opencontainers.image.version" value="5.3"/>
+	    <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
+            <label name="org.opencontainers.image.vendor" value="SUSE LLC"/>
+            <label name="org.opencontainers.image.url" value="https://www.suse.com/products/micro/"/>
+	    <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
+	    <label name="org.suse.reference" value="registry.suse.com/suse/sle-micro-rancher/5.3:%PKG_VERSION%-%RELEASE"/>
+          </suse_label_helper:add_prefix>
+          <label name="com.suse.supportlevel" value="l3"/>
+          <label name="com.suse.image-type" value="sle-micro"/>
+          <label name="com.suse.release-stage" value="released"/>
+          <label name="com.suse.eula" value="sle-eula"/>
+        </labels>
+      </containerconfig>
+    </type>
+    <version>5.3.0</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+
+  <repository type="rpm-md">
+    <source path="obsrepositories:/"/>
+  </repository>
+
+  <packages type="delete">
+    <package name="fillup"/>
+    <package name="perl"/>
+  </packages>
+
+  <packages type="bootstrap">
+    <package name="imx8mp-firmware"/>
+
+    <package name="bash"/>
+    <package name="ca-certificates-mozilla"/>
+    <package name="SLE-Micro-Rancher-release"/>
+
+    <package name="avahi"/>
+    <package name="apparmor-parser"/>
+    <package name="bash-completion"/>
+    <package name="container-selinux"/>
+    <package name="conntrack-tools"/>
+    <package name="coreutils"/>
+    <package name="curl"/>
+    <package name="device-mapper"/>
+    <package name="dmidecode" arch="aarch64,x86_64"/>
+    <package name="dosfstools"/>
+    <package name="dracut"/>
+    <package name="e2fsprogs"/>
+    <package name="ethtool"/>
+    <package name="findutils"/>
+    <package name="gawk"/>
+    <package name="gptfdisk"/>
+    <package name="glibc-locale-base"/>
+    <package name="grub2"/>
+    <package name="haveged"/>
+    <package name="hdparm"/>
+    <package name="iproute2"/>
+    <package name="iptables"/>
+    <package name="iputils"/>
+    <package name="issue-generator"/>
+    <package name="jq"/>
+    <package name="kernel-default"/>
+    <package name="kernel-firmware-bnx2"/>
+    <package name="kernel-firmware-chelsio"/>
+    <package name="kernel-firmware-iwlwifi"/>
+    <package name="kernel-firmware-liquidio"/>
+    <package name="kernel-firmware-marvell"/>
+    <package name="kernel-firmware-mediatek"/>
+    <package name="kernel-firmware-mellanox"/>
+    <package name="kernel-firmware-network"/>
+    <package name="kernel-firmware-platform"/>
+    <package name="kernel-firmware-qlogic"/>
+    <package name="kernel-firmware-realtek"/>
+    <package name="kernel-firmware-usb-network"/>
+    <package name="less"/>
+    <package name="lshw"/>
+    <package name="lsof"/>
+    <package name="lsscsi"/>
+    <package name="lvm2"/>
+    <package name="mdadm"/>
+    <package name="multipath-tools"/>
+    <package name="netcat-openbsd"/>
+    <package name="NetworkManager"/>
+    <package name="NetworkManager-branding-SLE"/>
+    <package name="nfs-client"/>
+    <package name="open-iscsi"/>
+    <package name="open-vm-tools" arch="aarch64,x86_64"/>
+    <package name="openssh"/>
+    <package name="parted"/>
+    <package name="pciutils"/>
+    <package name="pigz"/>
+    <package name="procps"/>
+    <package name="psmisc"/>
+    <package name="qemu-guest-agent"/>
+    <package name="rsync"/>
+    <package name="shim"/>
+    <package name="squashfs"/>
+    <package name="strace"/>
+    <package name="syslinux" arch="x86_64"/>
+    <package name="sysstat"/>
+    <package name="systemd"/>
+    <package name="systemd-presets-branding-SLE-Micro-for-Rancher"/>
+    <package name="systemd-sysvinit"/>
+    <package name="tar"/>
+    <package name="timezone"/>
+    <package name="traceroute"/>
+    <package name="vim-small"/>
+    <package name="which"/>
+    <package name="zstd"/>
+    <package name="zypper"/>
+    <package name="NetworkManager"/>
+
+    <package name="grub2-i386-pc" arch="x86_64"/>
+    <package name="grub2-x86_64-efi" arch="x86_64"/>
+    <package name="kernel-firmware-i915" arch="x86_64"/>
+    <package name="kernel-firmware-intel" arch="x86_64"/>
+    <package name="grub2-arm64-efi" arch="aarch64"/>
+    <package name="raspberrypi-firmware" arch="aarch64"/>
+    <package name="raspberrypi-firmware-config" arch="aarch64"/>
+    <package name="raspberrypi-firmware-dt" arch="aarch64"/>
+    <package name="u-boot-rpiarm64" arch="aarch64"/>
+
+  </packages>
+</image>
